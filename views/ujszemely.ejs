@@ -1,0 +1,22 @@
+<%-include('header')-%>
+<h1>Új Személy</h1>
+<div class="container">
+  <!-- Content here -->
+  <div class="mb-3 row">
+    <label for="inputID" class="col-sm-2 col-form-label">Név</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputID">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputColor" class="col-sm-2 col-form-label">Kor</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputColor">
+    </div>
+  </div>
+  <div class="col-auto">
+    <a href="/views/tulaj.ejs" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Létrehozás</a>
+    <a href="/views/tulaj.ejs" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">Mégsem</a>
+  </div>
+</div>
+<%-include('footer')-%>
