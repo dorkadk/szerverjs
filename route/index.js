@@ -11,8 +11,13 @@ const getAllSzemelyMW = require('../middleware/szemely/getAllSzemelyMW');
 const newSzemelyMW = require('../middleware/szemely/newSzemelyMW');
 const renderMW = require('../middleware/renderMW');
 
+const KerekparModel = require('../models/kerekpar');
+const SzemelyModel = require('../models/szemely');
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        KerekparModel: KerekparModel,
+        SzemelyModel: SzemelyModel
+    };
 
 
     app.get('/kerekpar/edit/:kerekparid',
@@ -24,13 +29,12 @@ module.exports = function (app) {
         renderMW(objRepo, 'ujkerekpar'));
 
     app.get('/szemely/edit/:szemelyid',
-        getSzemelyMW(objRepo),
         editSzemelyMW(objRepo)),
-        renderMW(objRepo, 'edittulaj');
+        getSzemelyMW(objRepo),
+        renderMW(objRepo, 'editszemely');
 
     app.get('/szemely/add/',
         newSzemelyMW(objRepo),
-        getAllSzemelyMW(objRepo),
         renderMW(objRepo, 'ujszemely'));
     app.use('/szemely/list/:szemelyid',
         getSzemelyMW(objRepo),
@@ -38,9 +42,9 @@ module.exports = function (app) {
         renderMW(objRepo, 'index'));
     app.use('/szemely/',
         getAllSzemelyMW(objRepo),
-        getSzemelyMW(objRepo),
+        //getSzemelyMW(objRepo),
         deleteSzemelyMW(objRepo),
-        renderMW(objRepo, 'tulaj'));
+        renderMW(objRepo, 'AllSzemely'));
     app.use('/',
         getAllKerekparMW(objRepo),
         deleteKerekparMW(objRepo),

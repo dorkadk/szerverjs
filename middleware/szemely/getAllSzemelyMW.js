@@ -4,7 +4,15 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+    const SzemelyModel = requireOption(objectrepository, 'SzemelyModel');
     return function (req, res, next) {
-        next();
+        SzemelyModel.find({}, (err, szemelyek)=> {
+            if(err){
+                return next(err);
+            }
+            res.locals.szemelyek = szemelyek;
+            return next();
+        })
+
     };
 };

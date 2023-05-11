@@ -1,4 +1,5 @@
-<%-include('header', {pageTitle: 'Tulajdonosok'})-%>
+<%-include('header')-%>
+
 <h1>Tulajdonosok</h1>
 <div class="container">
     <!-- Content here -->
@@ -16,14 +17,26 @@
         </tr>
         </thead>
         <tbody>
+            <% locals.szemelyek.forEach(function(egySzemely){%>
+            <tr>
+                <th scope="row"> <%= egySzemely.nev %> </th>
+                <td> <%= egySzemely.kor%></td>
+                <td style="white-space: nowrap"><a href="/szemely/list/:szemelyid"><i class="fa-solid fa-bicycle"></i></a></td>
+                <td style="white-space: nowrap"><a href="/szemely/edit/:szemelyid" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
+                <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa-solid fa-trash"></i>
+                        </button> </a></td>
+            </tr>
+            <%});%>
+        <!--
         <tr>
             <th scope="row">Petra</th>
-            <td>36</td>
-            <td style="white-space: nowrap"><a href="/views/index.ejs"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/edittulaj.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
+            <td> 25</td>
+            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
+            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
             <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa-solid fa-trash"></i>
-            </button> </a></td>
+            </button> </a></td> -->
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -46,13 +59,14 @@
                 </div>
             </div>
             <!-- Button trigger modal -->
+        <!--
 
         </tr>
         <tr>
             <th scope="row">Nagyi</th>
             <td>99</td>
-            <td style="white-space: nowrap"><a href="/views/index.ejs"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/edittulaj.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
+            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
+            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
             <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa-solid fa-trash"></i>
             </button> </a></td>
@@ -60,12 +74,13 @@
         <tr>
             <th scope="row">Béla</th>
             <td>21</td>
-            <td style="white-space: nowrap"><a href="/views/index.ejs"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/edittulaj.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
+            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
+            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
             <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa-solid fa-trash"></i>
             </button> </a></td>
         </tr>
+        -->
         </tbody>
     </table>
 </div>
