@@ -27,11 +27,14 @@ module.exports = function (app) {
     app.use('/kerekpar/add/',
         newKerekparMW(objRepo),
         renderMW(objRepo, 'ujkerekpar'));
+    app.get('/kerekpar/del/:kerekparid',
+        getKerekparMW(objRepo),
+        deleteKerekparMW(objRepo));
 
     app.get('/szemely/edit/:szemelyid',
-        editSzemelyMW(objRepo)),
+        editSzemelyMW(objRepo),
         getSzemelyMW(objRepo),
-        renderMW(objRepo, 'editszemely');
+        renderMW(objRepo, 'editszemely'));
 
     app.get('/szemely/add/',
         newSzemelyMW(objRepo),
@@ -40,14 +43,14 @@ module.exports = function (app) {
         getSzemelyMW(objRepo),
         getAllKerekparMW(objRepo),
         renderMW(objRepo, 'index'));
+    app.get('/szemely/del/:szemelyid',
+        getSzemelyMW(objRepo),
+        deleteSzemelyMW(objRepo));
     app.use('/szemely/',
         getAllSzemelyMW(objRepo),
-        //getSzemelyMW(objRepo),
-        deleteSzemelyMW(objRepo),
-        renderMW(objRepo, 'AllSzemely'));
+        renderMW(objRepo, 'szemely'));
     app.use('/',
         getAllKerekparMW(objRepo),
-        deleteKerekparMW(objRepo),
         renderMW(objRepo, 'index'));
 
 };

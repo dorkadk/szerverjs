@@ -12,7 +12,7 @@ module.exports = function (objectrepository) {
             if(err || !szemely){
                 return next(err);
             }
-            res.locals.szemelyek = szemely;
+            res.locals.szemely = szemely;
             return next();
         })
 

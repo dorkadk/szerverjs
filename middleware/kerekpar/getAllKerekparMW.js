@@ -4,27 +4,15 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+    const KerekparModel = requireOption(objectrepository, 'KerekparModel');
     return function (req, res, next) {
-        res.locals.kerekparok =[
-            {
-                id: 'id1',
-                tipus: 'MTB',
-                szin: 'sárga',
-                tulajdonos: 'Petra'
-            },
-            {
-                id: 'id2',
-                tipus: 'városi',
-                szin: 'kék',
-                tulajdonos: 'Béla'
-            },
-            {
-                id: 'id3',
-                tipus: 'egyéb',
-                szin: 'fekete',
-                tulajdonos: 'Nagyi'
+        KerekparModel.find().then({}, (err, kerekparok)=> {
+            if(err){
+                return next(err);
             }
-        ]
-        next();
+            res.locals.kerekparok = kerekparok;
+            return next();
+        })
+        return next();
     };
 };
