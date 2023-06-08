@@ -1,44 +1,62 @@
 <%-include('header')-%>
 <h1>Új Kerékpár</h1>
-<div class="container">
-  <!-- Content here -->
-  <div class="mb-3 row">
-    <label for="inputID" class="col-sm-2 col-form-label">Kerékpár ID</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputID">
+<form method = "POST">
+  <div class="container">
+    <!-- Content here -->
+    <div class="form-group">
+      <label for="id">Kerékpár ID</label>
+      <input type="text" class="form-control" id="id" name="id"
+      value="<%=(typeof kerekpar === 'undefined')? '': kerekpar.id%>">
+    </div>
+    <div class="form-group">
+      <label for="tipus">Típus</label>
+      <input type="text" class="form-control" id="tipus" name="tipus"
+             value="<%=(typeof kerekpar === 'undefined')? '': kerekpar.tipus%>">
+    </div>
+    <div class="form-group">
+      <label for="szin">Szín</label>
+      <input type="text" class="form-control" id="szin" name="szin"
+             value="<%=(typeof kerekpar === 'undefined')? '': kerekpar.szin%>">
+    </div>
+    <div class="form-group">
+      <label for="szemely">Tulajdonos</label>
+      <input type="text" class="form-control" id="szemely" name="szemely"
+             value="<%=(typeof kerekpar === 'undefined')? '': kerekpar._tulajdonos.nev%>">
+    </div>
+    <!--
+    <div class="mb-3 row">
+      <label for="inputID" class="col-sm-2 col-form-label">Tipus</label>
+      <div class="col-sm-10">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Egyéb</option>
+          <option value="1">MTB</option>
+          <option value="2">City</option>
+          <option value="3">BMX</option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputColor" class="col-sm-2 col-form-label">Szin</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputColor">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputID" class="col-sm-2 col-form-label">Tulajdonos</label>
+      <div class="col-sm-10">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Válasszon</option>
+          <option value="1">Petra</option>
+          <option value="2">Nagyi</option>
+          <option value="3">Béla</option>
+        </select>
+      </div>
+    </div> -->
+    <div class="col-auto">
+      <input type="submit" class="btn btn-primary" value="Mentés"/>
+      <!-- <a href="/kerekpar/add/" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Létrehozás</a> -->
+      <a href="/" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">Mégsem</a>
     </div>
   </div>
-  <div class="mb-3 row">
-    <label for="inputID" class="col-sm-2 col-form-label">Tipus</label>
-    <div class="col-sm-10">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Egyéb</option>
-        <option value="1">MTB</option>
-        <option value="2">City</option>
-        <option value="3">BMX</option>
-      </select>
-    </div>
-  </div>
-  <div class="mb-3 row">
-    <label for="inputColor" class="col-sm-2 col-form-label">Szin</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputColor">
-    </div>
-  </div>
-  <div class="mb-3 row">
-    <label for="inputID" class="col-sm-2 col-form-label">Tulajdonos</label>
-    <div class="col-sm-10">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Válasszon</option>
-        <option value="1">Petra</option>
-        <option value="2">Nagyi</option>
-        <option value="3">Béla</option>
-      </select>
-    </div>
-  </div>
-  <div class="col-auto">
-    <a href="/" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Létrehozás</a>
-    <a href="/" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">Mégsem</a>
-  </div>
-</div>
+</form>
 <%-include('footer')-%>

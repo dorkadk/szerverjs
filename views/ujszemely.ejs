@@ -2,6 +2,21 @@
 <h1>Új Személy</h1>
 <div class="container">
   <!-- Content here -->
+  <form method="POST">
+    <div class="form-group">
+      <label for="nev">Név</label>
+      <input type="text" class="form-control" id="nev" name="nev"
+             value="<%= (typeof szemely === 'undefined') ? '' : szemely.nev%>">
+    </div>
+    <div class="form-group">
+      <label for="kor">Kor</label>
+      <input type="text" class="form-control" id="kor" name="kor"
+             value="<%= (typeof szemely === 'undefined') ? '' : szemely.kor%>">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Mentés"/>
+    <a class="btn btn-link" href="/szemely/">Mégsem</a>
+  </form>
+  <!--
   <div class="mb-3 row">
     <label for="inputID" class="col-sm-2 col-form-label">Név</label>
     <div class="col-sm-10">
@@ -18,5 +33,6 @@
     <a href="/szemely/" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Létrehozás</a>
     <a href="/szemely/" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">Mégsem</a>
   </div>
+  -->
 </div>
 <%-include('footer')-%>

@@ -3,6 +3,7 @@ const deleteKerekparMW = require('../middleware/kerekpar/deleteKerekparMW');
 const editKerekparMW = require('../middleware/kerekpar/editKerekparMW');
 const getKerekparMW = require('../middleware/kerekpar/getKerekparMW');
 const getAllKerekparMW = require('../middleware/kerekpar/getAllKerekparMW');
+const getListKerekparMW = require('../middleware/kerekpar/getListKerekparMW');
 const newKerekparMW = require('../middleware/kerekpar/newKerekparMW');
 const deleteSzemelyMW = require('../middleware/szemely/deleteSzemelyMW');
 const editSzemelyMW = require('../middleware/szemely/editSzemelyMW');
@@ -31,17 +32,17 @@ module.exports = function (app) {
         getKerekparMW(objRepo),
         deleteKerekparMW(objRepo));
 
-    app.get('/szemely/edit/:szemelyid',
-        editSzemelyMW(objRepo),
+    app.use('/szemely/edit/:szemelyid',
         getSzemelyMW(objRepo),
+        editSzemelyMW(objRepo),
         renderMW(objRepo, 'editszemely'));
 
-    app.get('/szemely/add/',
+    app.use('/szemely/add/',
         newSzemelyMW(objRepo),
         renderMW(objRepo, 'ujszemely'));
     app.use('/szemely/list/:szemelyid',
         getSzemelyMW(objRepo),
-        getAllKerekparMW(objRepo),
+        getListKerekparMW(objRepo),
         renderMW(objRepo, 'index'));
     app.get('/szemely/del/:szemelyid',
         getSzemelyMW(objRepo),

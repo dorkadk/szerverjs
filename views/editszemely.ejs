@@ -1,22 +1,21 @@
-<%-include('header', {pageTitle: 'Tulajdonosok'});%>
+<%-include('header')%>
 <h1>Szerkesztés</h1>
 <div class="container">
   <!-- Content here -->
-  <div class="mb-3 row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Név</label>
-    <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Béla">
+  <form method="POST">
+    <div class="form-group">
+      <label for="nev">Név</label>
+      <input type="text" class="form-control" id="nev" name="nev"
+             value="<%= (typeof szemely === 'undefined') ? '' : szemely.nev%>">
     </div>
-  </div>
-  <div class="mb-3 row">
-    <label for="inputColor" class="col-sm-2 col-form-label">Kor</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputColor">
+    <div class="form-group">
+      <label for="kor">Kor</label>
+      <input type="text" class="form-control" id="kor" name="kor"
+             value="<%= (typeof szemely === 'undefined') ? '' : szemely.kor%>">
     </div>
+    <input type="submit" class="btn btn-primary" value="Mentés"/>
+    <a class="btn btn-link" href="/szemely/">Mégsem</a>
+  </form>
   </div>
-  <div class="col-auto">
-    <a href="/szemely/" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Mentés</a>
-    <a href="/szemely/" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">Mégsem</a>
-  </div>
-</div>
+
 <%-include('footer')-%>
