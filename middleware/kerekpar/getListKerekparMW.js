@@ -11,7 +11,6 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.kerekparok = kerekparok;
-            console.log("listet hív");
             return next();
         })
     };

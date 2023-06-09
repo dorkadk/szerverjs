@@ -2,7 +2,6 @@ const Schema = require('mongoose').Schema;
 const db = require('../config/db');
 
 const Kerekpar = db.model('Kerekpar', {
-    id: String,
     tipus: String,
     szin: String,
     _tulajdonos: {

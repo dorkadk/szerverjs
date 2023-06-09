@@ -1,14 +1,11 @@
 <%-include('header')-%>
 <h1>Kerékpárok</h1>
 <div class="container">
-    <!-- Content here -->
-   <!--- <table>
-        <th>Kerékpár ID</th><th>Típus</th><th>Szín</th><th>Tulajdonos</th><th></th>
-    </table> -->
+
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Kerékpár ID</th>
+
             <th scope="col">Típus</th>
             <th scope="col">Szín</th>
             <th scope="col">Tulajdonos</th>
@@ -20,17 +17,16 @@
         <tbody>
         <% locals.kerekparok.forEach(function(egyKerekpar){%>
             <tr>
-                <th scope="row"> <%= egyKerekpar.id %> </th>
                 <td> <%= egyKerekpar.tipus%></td>
                 <td> <%= egyKerekpar.szin%></td>
-                <td> <%= egyKerekpar._tulajdonos%></td>
+                <td style="white-space: nowrap"><a href="/szemely/list/<%= egyKerekpar._tulajdonos%>"><i class="fa-solid fa-person"></i></a></td>
                 <td style="white-space: nowrap"><a href="/kerekpar/edit/<%= egyKerekpar._id%>" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
-                <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<%= egyKerekpar._id %>">
                             <i class="fa-solid fa-trash"></i>
                         </button> </a></td>
             </tr>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal<%= egyKerekpar._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -44,8 +40,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Megsem</button>
-                            <a href="/kerekpar/del/<%=egyKerekpar._id%>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Törlés</button>
+                            <a href="/kerekpar/del/<%=egyKerekpar._id%>" class="btn btn-danger"><i> Törlés</i></a>
                         </div>
                     </div>
                 </div>

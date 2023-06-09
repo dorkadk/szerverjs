@@ -2,10 +2,7 @@
 
 <h1>Tulajdonosok</h1>
 <div class="container">
-    <!-- Content here -->
-    <!--- <table>
-         <th>Kerékpár ID</th><th>Típus</th><th>Szín</th><th>Tulajdonos</th><th></th>
-     </table> -->
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -23,23 +20,11 @@
                 <td> <%= egySzemely.kor%></td>
                 <td style="white-space: nowrap"><a href="/szemely/list/<%= egySzemely._id%>"><i class="fa-solid fa-bicycle"></i></a></td>
                 <td style="white-space: nowrap"><a href="/szemely/edit/<%= egySzemely._id%>" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
-                <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#runModal<%= egySzemely._id %>">
                             <i class="fa-solid fa-trash"></i>
                         </button> </a></td>
             </tr>
-            <%});%>
-        <!--
-        <tr>
-            <th scope="row">Petra</th>
-            <td> 25</td>
-            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
-            <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa-solid fa-trash"></i>
-            </button> </a></td> -->
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="runModal<%= egySzemely._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -53,34 +38,13 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Törlés</button>
+                            <a href="/szemely/del/<%=egySzemely._id%>" class="btn btn-danger"><i>Törles</i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Button trigger modal -->
-        <!--
+            <%});%>
 
-        </tr>
-        <tr>
-            <th scope="row">Nagyi</th>
-            <td>99</td>
-            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
-            <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa-solid fa-trash"></i>
-            </button> </a></td>
-        </tr>
-        <tr>
-            <th scope="row">Béla</th>
-            <td>21</td>
-            <td style="white-space: nowrap"><a href="/"><i class="fa-solid fa-bicycle"></i></a></td>
-            <td style="white-space: nowrap"><a href="/views/editszemely.ejs" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
-            <td style=" white-space: nowrap"> <a><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa-solid fa-trash"></i>
-            </button> </a></td>
-        </tr>
-        -->
         </tbody>
     </table>
 </div>

@@ -14,7 +14,7 @@ module.exports = function (objectrepository) {
 
         if (typeof res.locals.szemely === 'undefined') {
             res.locals.szemely = new SzemelyModel();
-            console.log(res.locals.szemely.nev);
+
         }
 
         res.locals.szemely.nev = req.body.nev;

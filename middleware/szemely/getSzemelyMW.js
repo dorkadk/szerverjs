@@ -7,9 +7,8 @@ module.exports = function (objectrepository) {
     const SzemelyModel = requireOption(objectrepository, 'SzemelyModel');
 
     return function (req, res, next) {
-
         SzemelyModel.findOne({_id: req.params.szemelyid}, (err, szemely)=> {
-            if(err || !szemely){
+            if(err|| !szemely){
                 return next(err);
             }
             res.locals.szemely = szemely;
